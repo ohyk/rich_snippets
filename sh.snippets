@@ -1,0 +1,158 @@
+#
+#
+
+snippet esh "sh"
+#!/usr/bin/env sh -
+endsnippet
+
+snippet psh "POSIX shell"
+#!/bin/sh -
+endsnippet
+
+snippet s#!
+#!/usr/bin/env sh
+set -euo pipefail
+endsnippet
+
+snippet wread "while read var..."
+while read ${1:var}
+do 
+	${0:${VISUAL}}
+done
+endsnippet
+
+snippet safe
+set -euo pipefail
+endsnippet
+
+snippet bash
+#!/usr/bin/env bash
+endsnippet
+
+snippet sbash
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+endsnippet
+
+snippet if
+if [ ${1:condition} ]
+then
+	${0:${VISUAL}}
+fi
+endsnippet
+
+snippet elif
+elif [ ${1:condition} ]
+then
+	${0:${VISUAL}}
+endsnippet
+
+snippet for
+for (( ${2:i} = 0; $2 < ${1:count}; $2++ ))
+do
+	${0:${VISUAL}}
+done
+endsnippet
+
+snippet fori
+for ${1:needle} in ${2:haystack}
+do
+	${0:${VISUAL}}
+done
+endsnippet
+
+snippet wh
+while [ ${1:condition} ]
+do
+	${0:${VISUAL}}
+done
+endsnippet
+
+snippet until
+until [ ${1:condition} ]
+do
+	${0:${VISUAL}}
+done
+endsnippet
+
+snippet case
+case ${1:word} in
+	${2:pattern})
+		${0};;
+esac
+endsnippet
+
+snippet go
+while getopts '${1:o}' ${2:opts}
+do
+	case $$2 in
+	${3:o0})
+		${0:#staments};;
+	esac
+done
+endsnippet
+
+# Set SCRIPT_DIR variable to directory script is located.
+snippet sdir
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+endsnippet
+
+# getopt
+snippet getopt
+_VERSION="${1:version}"
+
+# usage information
+usage()
+{
+	echo "Usage :  \`basename $${0:0}\` [options] [--]
+
+	Options:
+	-h|help			Show help text
+	-v|version		Show version number and quit"
+
+} 
+
+# handle command line arguments
+while getopts ":hv" opt
+do
+	case $opt in
+
+	h|help		)	usage; exit 0	;;
+	v|version	)	echo "\`basename $${0:0}\` -- Version $_VERSION"; exit 0	;;
+	*			)	echo "\n  Option does not exist : $OPTARG\n"
+					usage; exit 1	;;
+
+	esac 
+done
+shift $(($OPTIND-1))
+endsnippet
+
+snippet root
+if [ \$(id -u) -ne 0 ]; then exec sudo \$0; fi
+endsnippet
+
+snippet fun-sh
+${1:function_name}() 
+{
+	${0:#function_body}
+}
+endsnippet
+
+snippet fun "function..."
+function ${1:function_name}()
+{
+	${0:#function_body}
+}
+endsnippet
+
+snippet stdir "start dir"
+start_dir=$(pwd)
+endsnippet
+
+snippet hcomm "header comment..."
+#${1}
+# Copyright (C) `date +%Y` Rich
+# Created on `date +"%Y/%m/%d"`
+#${0}
+endsnippet
