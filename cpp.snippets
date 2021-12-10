@@ -1,3 +1,5 @@
+priority -50
+
 #===================================#
 # Preprocessor
 #===================================#
@@ -45,15 +47,31 @@ endsnippet
 # Comment
 #===================================#
 
-snippet hcomment "/*Head comment*/"
+snippet hcomment "/* head comment */"
+/*====================================================================*/
 /*${1}
- * Copyright (C) `date +%Y` Richard Guo
- * Created on `date +"%Y/%m/%d"`
+`!p 
+from datetime import datetime
+now = datetime.now()
+snip.rv=""" * Copyright (C) {} Richard Guo
+ * Created on {}/{}/{}""".format(now.year, now.year, now.month, now.day)
+`
  */${0}
+/*====================================================================*/
 endsnippet
 
-snippet comment "/*comment*/"
-/*
- * ${VISUAL}${1}
- */${0}
+snippet com "block comments"
+//====================================================================
+// ${VISUAL}${1}
+//====================================================================${0}
+endsnippet
+
+#===================================#
+# Functions
+#===================================#
+snippet main "main ()"
+int main()
+{
+	${1}
+}${0}
 endsnippet
