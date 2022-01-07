@@ -70,8 +70,19 @@ endsnippet
 # Functions
 #===================================#
 snippet main "main ()"
-int main()
+int main(int argc, char *argv[])
 {
 	${1}
+	return 0;
 }${0}
+endsnippet
+
+#===================================#
+# using
+#===================================#
+snippet ustd "using std::"
+using std::cin;
+using std::cout;
+using std::endl;
+using std::cerr;${0}
 endsnippet
