@@ -96,6 +96,17 @@ snippet com "block comments"
 endsnippet
 
 #===================================#
+# Class
+#===================================#
+snippet cls "class ... { ... }"
+class ${1:Cname}
+{
+public:${2}
+private:${3}
+};${0}
+endsnippet
+
+#===================================#
 # Functions
 #===================================#
 snippet main "main ()"
