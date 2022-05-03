@@ -77,7 +77,9 @@ endsnippet
 #===================================#
 
 snippet hcomment "/* head comment */"
-/*====================================================================*/
+/*`!p
+snip.rv = '='*72
+`*/
 /*${1}
 `!p 
 from datetime import datetime
@@ -85,14 +87,36 @@ now = datetime.now()
 snip.rv=""" * Copyright (C) {} Richard Guo
  * Created on {}/{}/{}""".format(now.year, now.year, now.month, now.day)
 `
- */${0}
-/*====================================================================*/
+ */
+/*`!p
+snip.rv = '='*72
+`*/${0}
 endsnippet
 
-snippet com "block comments"
-//====================================================================
+snippet lmark "//== Mark =="
+//`!p
+if not snip.v.text:
+	snip.rv = '='*72
+else:
+	snip.rv = ' {} '.format(snip.v.text.strip('\n')).center(72, '=')
+`
+endsnippet
+
+snippet com "comments"
 // ${VISUAL}${1}
-//====================================================================${0}
+endsnippet
+
+snippet bcomm "block comment"
+//`!p
+if not snip.v.text:
+	snip.rv = '='*72
+else:
+	snip.rv = ' {} '.format(snip.v.text.strip('\n')).center(72, '=')
+`
+// ${1}
+//`!p
+snip.rv = '='*72
+`${0}
 endsnippet
 
 #===================================#
@@ -101,7 +125,10 @@ endsnippet
 snippet cls "class ... { ... }"
 class ${1:Cname}
 {
-public:${3}
+public: 
+	$1();
+	~$1();
+	${3}
 private:${2}
 };${0}
 endsnippet
@@ -121,8 +148,5 @@ endsnippet
 # using
 #===================================#
 snippet ustd "using std::"
-using std::cin;
-using std::cout;
-using std::endl;
-using std::cerr;${0}
+using namespace std;
 endsnippet
