@@ -120,6 +120,33 @@ snip.rv = '='*72
 `*/${0}
 endsnippet
 
+snippet cdcomment "/* docutment comment */"
+/*`!p
+def title(s):
+	return ' {} '.format(s).center(72, '=')
+if not snip.v.text:
+	snip.rv='='*72
+else:
+	snip.rv=title(snip.v.text.strip('\n'))
+`*/
+/*
+ * ${1}
+ * 参数：
+ * ${2}
+ * 返回值：
+ * ${3}
+ * 已检查运行时错误：
+ * ${4}
+ * 未检查运行时错误：
+ * ${5}
+ * 异常：
+ * ${6}
+ */
+/*`!p
+snip.rv = '='*72
+`*/${0}
+endsnippet
+
 snippet dcomment "/* docutment comment */"
 /*`!p
 def title(s):
