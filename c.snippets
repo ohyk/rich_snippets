@@ -4,6 +4,12 @@
 
 priority -50
 
+# Global
+global !p
+def title(s):
+	return ' {} '.format(s).center(72, '=')
+endglobal
+
 #===================================#
 # Preprocessor
 #===================================#
@@ -69,8 +75,6 @@ endsnippet
 
 snippet lmark "/*== Mark ==*/"
 /*`!p
-def title(s):
-	return ' {} '.format(s).center(72, '=')
 if not snip.v.text:
 	snip.rv='='*72
 else:
@@ -105,8 +109,6 @@ endsnippet
 
 snippet bcomment "box comment"
 /*`!p
-def title(s):
-	return ' {} '.format(s).center(72, '=')
 if not snip.v.text:
 	snip.rv='='*72
 else:
@@ -122,8 +124,6 @@ endsnippet
 
 snippet cdcomment "/* docutment comment */"
 /*`!p
-def title(s):
-	return ' {} '.format(s).center(72, '=')
 if not snip.v.text:
 	snip.rv='='*72
 else:
@@ -149,8 +149,6 @@ endsnippet
 
 snippet dcomment "/* docutment comment */"
 /*`!p
-def title(s):
-	return ' {} '.format(s).center(72, '=')
 if not snip.v.text:
 	snip.rv='='*72
 else:
